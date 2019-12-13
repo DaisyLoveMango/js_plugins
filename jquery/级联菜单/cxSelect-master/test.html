@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+    <title>小程序后台</title>
+    <!-- Favicon-->
+    <!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+    <link rel="stylesheet" href="./assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap Select Css -->
+    <link href="./assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/color_skins.css">
+</head>
+<body class="theme-black menu_dark">
+
+  <h1>级联菜单测试</h1>
+
+
+  <fieldset id="custom_data">
+    <legend>自定义选项</legend>
+    <p>一：<select class="first"></select></p>
+    <p>二：<select class="second"></select></p>
+    <p>三：<select class="third"></select></p>
+    <p>四：<select class="fourth"></select></p>
+    <p>五：<select class="fifth"></select></p>
+  </fieldset>
+
+
+
+<!-- <script src="http://cdn.staticfile.org/jquery/1.11.3/jquery.min.js"></script> -->
+<!-- <script src="http://cdn.staticfile.org/zepto/1.0/zepto.min.js"></script> -->
+<script src="js/libscripts.bundle.js"></script>
+<script src="js/vendorscripts.bundle.js"></script>
+<script src="js/jquery.cxselect.js"></script>
+
+<script src="./assets/bundles/mainscripts.bundle.js"></script> 
+<script type="text/javascript">
+  (function() {
+    var dataCustom = [
+    {'v': '1', 'n': '第一级 >', 's': [
+      {'v': '2', 'n': '第二级 >', 's': [
+        {'v': '3', 'n': '第三级 >', 's': [
+          {'v': '4', 'n': '第四级 >', 's': [
+            {'v': '5', 'n': '第五级 >', 's': [
+              {'v': '6', 'n': '第六级 >'}
+            ]}
+          ]}
+        ]}
+      ]}
+    ]},
+    {'v': 'test number', 'n': '测试数字', 's': [
+      {'v': 'text', 'n': '文本类型', 's': [
+        {'v': '4', 'n': '4'},
+        {'v': '5', 'n': '5'},
+        {'v': '6', 'n': '6'},
+        {'v': '7', 'n': '7'},
+        {'v': '8', 'n': '8'},
+        {'v': '9', 'n': '9'},
+        {'v': '10', 'n': '10'}
+      ]},
+      {'v': 'number', 'n': '数值类型', 's': [
+        {'v': 11, 'n': 11},
+        {'v': 12, 'n': 12},
+        {'v': 13, 'n': 13},
+        {'v': 14, 'n': 14},
+        {'v': 15, 'n': 15},
+        {'v': 16, 'n': 16},
+        {'v': 17, 'n': 17}
+      ]}
+    ]},
+    {'v': 'test boolean','n': '测试 Boolean 类型', 's': [
+      {'v': true ,'n': true},
+      {'v': false ,'n': false}
+    ]},
+    {v: 'test quotes', n: '测试属性不加引号', s: [
+      {v: 'quotes', n: '引号'}
+    ]},
+    {v: 'test other', n: '测试奇怪的值', s: [
+      {v: '[]', n: '数组（空）'},
+      {v: [1,2,3], n: '数组（数值）'},
+      {v: ['a','b','c'], n: '数组（文字）'},
+      {v: new Date(), n: '日期'},
+      {v: new RegExp('\\d+'), n: '正则对象'},
+      {v: /\d+/, n: '正则直接量'},
+      {v: {}, n: '对象'},
+      {v: document.getElementById('custom_data'), n: 'DOM'},
+      {v: null, n: 'Null'},
+      {n: '未设置 value'}
+    ]},
+    {'v': '' , 'n': '无子级'}
+  ];
+
+   // 自定义选项
+  $('#custom_data').cxSelect({
+    selects: ['first', 'second', 'third', 'fourth', 'fifth'],
+    // required: true,
+    jsonValue: 'v',
+    data: dataCustom
+  });
+})();
+</script>
+
+
+</body>
+
+</html>
